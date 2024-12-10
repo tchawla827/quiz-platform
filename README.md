@@ -14,7 +14,7 @@
 ### Admin
 - Create Admin account using command
 ```
-py manage.py createsuperuser
+python manage.py createsuperuser
 ```
 - After Login, can see Total Number Of Student, Teacher, Course, Questions are there in system on Dashboard.
 - Can View, Update, Delete, Approve Teacher.
