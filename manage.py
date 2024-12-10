@@ -2,7 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+USE_TZ = True  # Ensure timezone support is enabled
+TIME_ZONE = 'Asia/Kolkata'  # Set the local timezone for Django application
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'onlinequiz.settings')
