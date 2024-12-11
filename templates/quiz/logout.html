@@ -1,19 +1,63 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    {% include "quiz/navbar.html" %}
-    <br><br><br><br><br>
-<img src="{% static "image/logout_img.png" %}"  style="width:800px; height:100px; padding-left:400px;">
 
-<br><br><br><br><br>
-<br><br><br><br><br>
-<br><br>
-{% include "quiz/footer.html" %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Logout</title>
 
-  </body>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Ensuring a consistent padding and margin for the page */
+    body {
+      padding-top: 60px; /* Space from navbar */
+      background-color: #f8f9fa; /* Light background color for consistency */
+    }
+
+    /* Centering the logout image */
+    .logout-image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 60%; /* Adjust width as needed */
+      max-width: 800px;
+      height: auto;
+    }
+
+    /* Adding extra spacing for balance */
+    .content {
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    /* Footer styling */
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "quiz/navbar.html" %}
+
+  <div class="content">
+    <img src="{% static 'image/logout_img.png' %}" class="logout-image" alt="Logout Image">
+  </div>
+
+  {% include "quiz/footer.html" %}
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
 </html>

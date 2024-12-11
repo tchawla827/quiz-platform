@@ -2,58 +2,77 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+        /*---------------------------------------
+        Footer section
+        -----------------------------------------*/
+        footer {
+            background-color: #212529;
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+        }
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        .social-icons {
+            margin: 20px 0;
+        }
 
+        .fa {
+            padding: 15px;
+            font-size: 30px;
+            width: 60px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: #3b3b3b;
+            margin: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-  <style>
-    /*---------------------------------------
-   Social section
------------------------------------------*/
-    footer {
-      padding: 0px 0px 0px 0px;
-      background-color: #212529;
-      margin: 0px;
-    }
+        .fa:hover {
+            opacity: 0.7;
+            transform: scale(1.1);
+            background-color: #4CAF50;
+        }
 
-    .fa {
-      padding: 20px;
-      font-size: 23px;
-      width: 60px;
-      text-align: center;
-      text-decoration: none;
-      margin: 5px 2px;
-      border-radius: 50%;
-    }
+        .footer-copyright p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
 
-    .fa:hover {
-      opacity: 0.5;
-      text-decoration: none;
-    }
-
-
-
-    p {
-      text-align: center;
-
-    }
-  </style>
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .fa {
+                font-size: 26px;
+                width: 50px;
+            }
+        }
+    </style>
 </head>
 
-<footer>
-
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
-        <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
-          <p>Made in India <br>
-            Copyright &copy; Online Quiz 2020 </p><br>
+<body>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="footer-copyright wow fadeInUp">
+                        <p>Made in India <br>
+                            Copyright &copy; Online Quiz 2020
+                        </p>
+                    </div>
+                    <!-- Social Media Icons -->
+                    <div class="social-icons">
+                        <a href="#" class="fa fa-facebook" target="_blank"></a>
+                        <a href="#" class="fa fa-twitter" target="_blank"></a>
+                        <a href="#" class="fa fa-linkedin" target="_blank"></a>
+                        <a href="#" class="fa fa-instagram" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
+</body>
 
 </html>

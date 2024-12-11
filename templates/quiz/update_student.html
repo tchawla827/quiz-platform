@@ -2,64 +2,83 @@
 {% load widget_tweaks %}
 {% block content %}
 <head>
-  <style media="screen">
-    input[type=text], select,input[type=number] ,input[type=password], textarea{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+    <style media="screen">
+        input[type=text], input[type=number], input[type=password], textarea, select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
 
+        .form-container {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-  </style>
+        h3 {
+            text-align: left;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
 
-
+        .form-label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    </style>
 </head>
 
-<br><br>
-<h3 style="text-align:center;">UPDATE STUDENT</h3>
-<div>
-  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
-      {% csrf_token %}
-        <label for="first_name">First Name</label>
+<div class="form-container">
+    <h3>Update Student</h3>
+    <form method="post" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="first_name" class="form-label">First Name</label>
         {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
-        <label for="last_name">Last Name</label>
+        
+        <label for="last_name" class="form-label">Last Name</label>
         {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
-          <label for="mobile">Mobile</label>
-          {% render_field studentForm.mobile class="form-control" placeholder="Mobile" %}
-            <label for="address">Address</label>
-          {% render_field studentForm.address class="form-control" placeholder="Address" %}
-          
-        <label for="username">Username</label>
+        
+        <label for="mobile" class="form-label">Mobile</label>
+        {% render_field studentForm.mobile class="form-control" placeholder="Mobile" %}
+        
+        <label for="address" class="form-label">Address</label>
+        {% render_field studentForm.address class="form-control" placeholder="Address" %}
+        
+        <label for="username" class="form-label">Username</label>
         {% render_field userForm.username class="form-control" placeholder="Username" %}
-          <label for="password">Password</label>
-        {% render_field userForm.password class="form-control" placeholder="Password" %} <br><br>
-        <label for="profile_pic">Profile Picture</label>
-          {% render_field studentForm.profile_pic class="form-control" placeholder="Profile Picture" %}
-<br><br>
-    <input type="submit" value="Update">
-  </form>
+        
+        <label for="password" class="form-label">Password</label>
+        {% render_field userForm.password class="form-control" placeholder="Password" %}
+        
+        <label for="profile_pic" class="form-label">Profile Picture</label>
+        {% render_field studentForm.profile_pic class="form-control" placeholder="Profile Picture" %}
+        
+        <input type="submit" value="Update">
+    </form>
 </div>
 
-
-
-<br><br><br><br><br><br><br><br>
 {% endblock content %}

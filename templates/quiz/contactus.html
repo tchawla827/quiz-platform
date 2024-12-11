@@ -3,35 +3,107 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style media="screen">
+    /* Jumbotron for main content area */
+    .jumbotron {
+      background-color: #04868f;
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+    }
 
+    .jumbotron h1 {
+      font-size: 36px;
+      font-weight: bold;
+    }
 
+    /* Styling the feedback message alert */
+    .alert-success {
+      background-color: #4CAF50;
+      border-color: #4CAF50;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
+    /* Form Styling */
+    .form-group p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .form-group h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #04868f;
+      border-color: #04868f;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 5px;
+      color: white;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #03767f;
+      border-color: #03767f;
+    }
+
+    /* Center content */
+    .content-center {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    /* Footer styling */
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+  </style>
+
+  <title>Feedback</title>
 </head>
 
 <body>
 
   {% include "quiz/navbar.html" %}
-  <br><br>
-
-  <center>
-    <h3 class='alert alert-success'>Send Us Your Valuable Feedback !</h3>
-
-    <form method="POST" autocomplete="off">
-      <!-- Very Important csrf Token -->
-      {% csrf_token %}
-      <div class="form-group">
-        <p>
-        <h3>{{ form.as_p }}</h3>
-        </p>
-        <br>
-        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
-      </div>
-    </form>
-  </center>
+  
+  <!-- Feedback Section -->
+  <div class="container content-center">
+    <h3 class="alert alert-success">Send Us Your Valuable Feedback!</h3>
+    <div class="jumbotron">
+      <form method="POST" autocomplete="off">
+        <!-- Very Important csrf Token -->
+        {% csrf_token %}
+        <div class="form-group">
+          <p>Please provide your feedback below:</p>
+          <h3>{{ form.as_p }}</h3>
+          <br>
+          <input type="submit" value="Send Message" class="btn btn-primary btn-lg">
+        </div>
+      </form>
+    </div>
+  </div>
 
   {% include "quiz/footer.html" %}
+  
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

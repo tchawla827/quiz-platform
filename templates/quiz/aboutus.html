@@ -5,43 +5,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  
   <style media="screen">
+    /* Jumbotron styling */
     .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
-    }
-
-    .jumbotron h1 {
+      margin-top: 30px;
+      background-color: #04868f;
+      color: white;
+      border-radius: 10px;
+      padding: 30px;
       text-align: center;
     }
 
+    .jumbotron h1 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    /* Alert box styling */
     .alert {
-      margin: 0px;
+      margin: 20px 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .alert-success {
+      background-color: #4CAF50;
+      border-color: #4CAF50;
+      color: white;
+    }
+
+    /* Button styling */
+    .btn-primary {
+      background-color: #04868f;
+      border-color: #04868f;
+      font-size: 16px;
+      padding: 12px 25px;
+      border-radius: 5px;
+    }
+
+    .btn-primary:hover {
+      background-color: #03767f;
+      border-color: #03767f;
+    }
+
+    /* Centering the content */
+    .content-center {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .content-center p {
+      font-size: 18px;
+    }
+
+    /* Footer styling */
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      text-align: center;
     }
   </style>
 
-  <title></title>
+  <title>About Us</title>
 </head>
 
 <body>
 
   {% include "quiz/navbar.html" %}
-  <br><br>
-  <center>
-    <h3 class='alert alert-success' style="margin-bottom:0px;">About Us !</h3>
-  </center>
-  <div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;">
-    
-    <p class="lead">We Provide Platform For Students To practice Questions  <br> Teacher can add course/exam to System and Questions to that course.</p>
-    <hr class="my-4">
-    <p>Explore our Website.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
-    </p>
+  
+  <!-- About Us Section -->
+  <div class="content-center">
+    <h3 class="alert alert-success">About Us!</h3>
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to Our Platform!</h1>
+      <p class="lead">We provide a platform for students to practice questions. Teachers can add courses, exams, and questions to the system.</p>
+      <hr class="my-4">
+      <p>Explore our website to learn more!</p>
+      <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
+    </div>
   </div>
 
   {% include "quiz/footer.html" %}
+  
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

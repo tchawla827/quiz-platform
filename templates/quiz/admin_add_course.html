@@ -1,38 +1,82 @@
 {% extends 'quiz/adminbase.html' %}
 {% load widget_tweaks %}
 {% block content %}
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  a:link {
-        text-decoration: none;
-      }
-    
-  </style>
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #4C51BF;
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group select {
+            border-radius: 8px;
+        }
+
+        .form-group input {
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            background-color: #4C51BF;
+            border-color: #4C51BF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #3b42a1;
+            border-color: #3b42a1;
+        }
+    </style>
 </head>
-<h2 style="text-align:center; color:blue;">ADD COURSE</h2>
-<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
-    {%csrf_token%}
-    <div class="form-group">
-      <label for="course_name">Course Name</label>
-      {% render_field courseForm.course_name class="form-control" placeholder="Java" %}
 
-      <label for="question_number">Total Question</label>
-      {% render_field courseForm.question_number class="form-control" placeholder="10" %}
+<div class="form-container">
+    <h2>ADD COURSE</h2>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="course_name">Course Name</label>
+            {% render_field courseForm.course_name class="form-control" %}
+        </div>
 
-      <label for="total_marks">Total Marks</label>
-      {% render_field courseForm.total_marks class="form-control" placeholder="50" %}
-    </div>
-    
+        <div class="form-group">
+            <label for="question_number">Total Questions</label>
+            {% render_field courseForm.question_number class="form-control" placeholder="Enter Total Number of Questions" %}
+        </div>
 
-    <button type="submit" class="btn btn-primary">ADD</button>
-  </form>
-<br><br><br>
+        <div class="form-group">
+            <label for="total_marks">Total Marks</label>
+            {% render_field courseForm.total_marks class="form-control" placeholder="Enter Total Marks" %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">ADD</button>
+    </form>
+</div>
+
 {% endblock content %}

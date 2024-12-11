@@ -6,49 +6,105 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  a:link {
-        text-decoration: none;
-      }
-    
-  </style>
+
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+
+        /* Styling for form elements */
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #04868f;
+            border-color: #04868f;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #03767f;
+            border-color: #03767f;
+        }
+
+        h2 {
+            text-align: center;
+            color: #04868f;
+            margin-bottom: 40px;
+        }
+
+        /* Ensuring form consistency and responsive layout */
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+
+        .form-control:focus {
+            border-color: #04868f;
+            box-shadow: 0px 0px 5px rgba(4, 134, 143, 0.5);
+        }
+    </style>
 </head>
-<h2 style="text-align:center; color:blue;">ADD QUESTION</h2>
-<form method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
-    {%csrf_token%}
-    <div class="form-group">
-        <label for="question">Course</label>
-      {% render_field questionForm.courseID|attr:'required:true' class="form-control"  %}
-        <br>
 
-      <label for="question">Question</label>
-      {% render_field questionForm.question|attr:'required:true' class="form-control" placeholder="What is the currency of India ?" %}
-        <br>
-      <label for="question_number">Marks</label>
-      {% render_field questionForm.marks|attr:'required:true' class="form-control" placeholder="10" %}
-        <br>
-      <label for="option1">Option 1</label>
-      {% render_field questionForm.option1|attr:'required:true' class="form-control" placeholder="Rupees" %}
-        <br>
-      <label for="option2">Option 2</label>
-      {% render_field questionForm.option2|attr:'required:true' class="form-control" placeholder="Dollar" %}
-        <br>
-      <label for="option3">Option 3</label>
-      {% render_field questionForm.option3|attr:'required:true' class="form-control" placeholder="Taka" %}
-        <br>
-      <label for="option4">Option 4</label>
-      {% render_field questionForm.option4|attr:'required:true' class="form-control" placeholder="Euro" %}
-        <br>
-      <label for="answer">Answer</label>
-      {% render_field questionForm.answer|attr:'required:true' class="form-control" %}
-    </div>
-    
+<h2>Add Question</h2>
 
-    <button type="submit" class="btn btn-primary">ADD</button>
-  </form>
+<div class="container">
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="course">Course</label>
+            {% render_field questionForm.courseID class="form-control" required="true" %}
+        </div>
+
+        <div class="form-group">
+            <label for="question">Question</label>
+            {% render_field questionForm.question class="form-control" placeholder="What is the currency of India?" required="true" %}
+        </div>
+
+        <div class="form-group">
+            <label for="marks">Marks</label>
+            {% render_field questionForm.marks class="form-control" placeholder="10" required="true" %}
+        </div>
+
+        <div class="form-group">
+            <label for="option1">Option 1</label>
+            {% render_field questionForm.option1 class="form-control" placeholder="Rupees" required="true" %}
+        </div>
+
+        <div class="form-group">
+            <label for="option2">Option 2</label>
+            {% render_field questionForm.option2 class="form-control" placeholder="Dollar" required="true" %}
+        </div>
+
+        <div class="form-group">
+            <label for="option3">Option 3</label>
+            {% render_field questionForm.option3 class="form-control" placeholder="Taka" required="true" %}
+        </div>
+
+        <div class="form-group">
+            <label for="option4">Option 4</label>
+            {% render_field questionForm.option4 class="form-control" placeholder="Euro" required="true" %}
+        </div>
+
+        <div class="form-group">
+            <label for="answer">Answer</label>
+            {% render_field questionForm.answer class="form-control" required="true" %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Question</button>
+    </form>
+</div>
+
 <br><br><br>
 {% endblock content %}
