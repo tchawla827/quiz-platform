@@ -3,71 +3,137 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <style>
+      body {
+        font-family: 'Arial', sans-serif;
+      }
 
-        form{
-           margin: 50px; 
-          
-        }
+      .signup-form-container {
+        margin: 50px;
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
+      .form-heading {
+        text-align: center;
+        color: #04868f;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+
+      .form-control {
+        border-radius: 30px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        margin-bottom: 15px;
+      }
+
+      .form-control:focus {
+        box-shadow: 0 0 10px rgba(0, 114, 194, 0.7);
+        border-color: #04868f;
+      }
+
+      .btn-primary {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+        background-color: #04868f;
+        border-radius: 30px;
+        width: 100%;
+        margin-top: 15px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #4C51BF;
+      }
+
+      .footer {
+        background-color: #f8f9fa;
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+      }
+
+      .footer p {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .footer a {
+        color: #04868f;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
+
     {% include "quiz/navbar.html" %}
- 
+    
+    <!-- Signup Form Section -->
+    <div class="container signup-form-container">
+      <h3 class="form-heading">Teacher Signup</h3>
+      <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="username">Username</label>
+            {% render_field userForm.username|attr:'required:true' class="form-control" placeholder="Username" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            {% render_field userForm.password|attr:'required:true' class="form-control" placeholder="Password" %}
+          </div>
+        </div>
 
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="first_name">First Name</label>
+            {% render_field userForm.first_name|attr:'required:true' class="form-control" placeholder="First Name" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="last_name">Last Name</label>
+            {% render_field userForm.last_name|attr:'required:true' class="form-control" placeholder="Last Name" %}
+          </div>
+        </div>
 
-<br><br><br>
-<h3 style="text-align: center;color: red;">TEACHER SIGNUP</h3>
-<form method="POST" autocomplete="off" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="username">Username</label>
-        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
-      </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="mobile">Mobile</label>
+            {% render_field teacherForm.mobile|attr:'required:true' class="form-control" placeholder="Mobile" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="address">Address</label>
+            {% render_field teacherForm.address|attr:'required:true' class="form-control" placeholder="Address" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="profile_pic">Profile Picture</label>
+            {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" placeholder="Upload Profile Picture" %}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
     </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="first_name">First Name</label>
-          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="last_name">Last Name</label>
-          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
-        </div>
-      </div>
+  
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="mobile">Mobile</label>
-          {% render_field teacherForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="address">Address</label>
-          {% render_field teacherForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="profile_pic">Profile Picture</label>
-          {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
-        </div>
-        
-      </div>
-
-
-    <button type="submit" class="btn btn-primary">Sign Up</button>
-  </form>
-
-
-<br><br>
-{% include "quiz/footer.html" %}
+    {% include "quiz/footer.html" %}
   </body>
 </html>

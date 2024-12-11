@@ -4,70 +4,143 @@
   <head>
     <meta charset="utf-8">
     <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
 
-        form{
-           margin: 50px; 
-          
-        }
+      .container {
+        max-width: 900px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      h3 {
+        text-align: center;
+        color: #04868f;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+
+      .form-group label {
+        font-size: 1.1rem;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .form-control {
+        border-radius: 30px;
+        padding: 15px;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: #04868f;
+        box-shadow: 0 0 5px rgba(0, 72, 101, 0.2);
+      }
+
+      button {
+        background-color: #04868f;
+        color: white;
+        border: none;
+        padding: 14px 30px;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #36b3a3;
+      }
+
+      .footer {
+        background-color: #f8f9fa;
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+      }
+
+      .footer p {
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .footer a {
+        color: #04868f;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      .form-row {
+        margin-bottom: 20px;
+      }
 
     </style>
   </head>
   <body>
     {% include "quiz/navbar.html" %}
- 
 
+    <div class="container">
+      <h3>STUDENT SIGNUP</h3>
+      <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="username">Username</label>
+            {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="Username" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="Password" %}
+          </div>
+        </div>
 
-<br><br><br>
-<h3 style="text-align: center;color: red;">STUDENT SIGNUP</h3>
-<form method="POST" autocomplete="off" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="username">Username</label>
-        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
-      </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="first_name">First Name</label>
+            {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="last_name">Last Name</label>
+            {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="mobile">Mobile</label>
+            {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
+          </div>
+          <div class="form-group col-md-6">
+            <label for="address">Address</label>
+            {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="profile_pic">Profile Picture</label>
+            {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
     </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="first_name">First Name</label>
-          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="First Name" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="last_name">Last Name</label>
-          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="mobile">Mobile</label>
-          {% render_field studentForm.mobile|attr:'required:true'  class="form-control" placeholder="Mobile" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="address">Address</label>
-          {% render_field studentForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="profile_pic">Profile Picture</label>
-          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
-        </div>
-        
-      </div>
-
-
-    <button type="submit" class="btn btn-primary">Sign Up</button>
-  </form>
-
-
-<br><br>
-{% include "quiz/footer.html" %}
+    {% include "quiz/footer.html" %}
   </body>
 </html>

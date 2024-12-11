@@ -6,36 +6,89 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <style media="screen">
-    .jumbotron {
-      margin-top: 0px;
-      margin-bottom: 0px;
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
     }
 
-    .jumbotron h1 {
+    .hero-section {
+      background-color: #04868f;
+      color: white;
       text-align: center;
+      padding: 100px 20px;
+      border-radius: 10px;
+      margin-top: 50px;
     }
 
-  </style>
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
 
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-section .btn-primary {
+      font-size: 1.1rem;
+      padding: 10px 30px;
+      border-radius: 30px;
+      margin: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .hero-section .btn-primary:hover {
+      background-color: #4C51BF;
+    }
+
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .footer a {
+      color: #04868f;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
 
   {% include "quiz/navbar.html" %}
-  <br><br>
-  <div class="jumbotron" style="margin-bottom:0px;">
+
+  <!-- Hero Section -->
+  <div class="container hero-section">
     <h1 class="display-4">Hello, Teacher</h1>
-    <p class="lead">Welcome to Online Quiz</p>
+    <p class="lead">Welcome to Online Quiz! Create and manage your quizzes with ease.</p>
     <hr class="my-4">
     <p>You can access various features after Login.</p>
-    <p class="lead">
+    <p>
       <a class="btn btn-primary btn-lg" href="teachersignup" role="button">Create Your Account</a>
       <a class="btn btn-primary btn-lg" href="teacherlogin" role="button">Login</a>
     </p>
-    <br><br><br><br>
   </div>
+
+
   {% include "quiz/footer.html" %}
+  
 </body>
 
 </html>

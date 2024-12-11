@@ -1,13 +1,13 @@
 {% extends 'teacher/teacherbase.html' %}
 {% block content %}
-{%load static%}
+{% load static %}
 
 <head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-  <style media="screen">
+  <!-- Use Bootstrap 5 for modern styling -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+  <style>
     a:link {
       text-decoration: none;
     }
@@ -16,40 +16,86 @@
       text-align: center;
     }
 
-    .row {
-      margin: 100px;
+    .container {
+      margin-top: 50px;
     }
+
+    .panel-heading {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .panel-title {
+      font-size: 20px;
+    }
+
+    .btn-xs {
+      padding: 5px 10px;
+    }
+
+    .card {
+      margin-bottom: 20px;
+      border: none;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .table thead {
+      background-color: #f8f9fa;
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: #e9ecef;
+    }
+
   </style>
 </head>
-<br><br>
+
 <div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h6 class="panel-title">Questions</h6>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="panel-title">Questions</h6>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped table-hover" id="dev-table">
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Marks</th>
+                <th>Delete Question</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for c in questions %}
+              <tr>
+                <td>{{ c.question }}</td>
+                <td>{{ c.marks }}</td>
+                <td>
+                  <a class="btn btn-danger btn-sm" href="{% url 'remove-question' c.id %}">
+                    <i class="fas fa-trash"></i> Delete
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <table class="table table-hover" id="dev-table">
-      <thead>
-        <tr>
-
-          <th>Question</th>
-         
-          <th>Marks</th>
-          <th>Delete Question</th>
-        </tr>
-      </thead>
-      {% for c in questions %}
-      <tr>
-
-        <td> {{c.question}}</td>
-        
-        <td>{{c.marks}}</td>
-        <td><a class="btn btn-primary btn-xs" href="{% url 'remove-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
-        
-      </tr>
-      {% endfor %}
-    </table>
   </div>
 </div>
 
-<br><br><br><br><br><br>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
 {% endblock content %}
